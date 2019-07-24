@@ -1,10 +1,24 @@
 <div class="container">
-  <div class="card p-3 m-3 col-3 ">
+  <div class="card">
     <h1><%= @restaurant.name %></h1>
     <p><%= @restaurant.category %></p>
     <p><%= @restaurant.address %></p>
 
+    <h2>Rate this restaurant</h2>
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :rating, collection: 0..5 %>
+      <%= f.input :content %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+
     <p><%= link_to "Back to restaurants", restaurants_path %></p>
     <p><%= link_to "Update restaurant informations", edit_restaurant_path %></p>
+
+    <% @restaurant.reviews.each do |x| %>
+    <div class="card p-3 m-3 col-3 ">
+    <p><%=  x.content %></p>
+    <p><%=  x.rating %></p>
+    </div>
+    <% end %>
   </div>
 </div>
