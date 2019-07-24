@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="card p-3 m-3 col-3 ">
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.category %></p>
+    <p><%= @restaurant.address %></p>
+
+    <p><%= link_to "Back to restaurants", restaurants_path %></p>
+    <p><%= link_to "Update restaurant informations", edit_restaurant_path %></p>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Restaurants</h1>
+  <div class="row mx-10px">
+  <% @restaurants.each do |x| %>
+    <div class="card p-3 m-3 col-3 ">
+    <h2><%= link_to x.name.upcase, restaurant_path(x) %></h2>
+    <p> Category: <%= x.category %></p>
+    <p> Location: <%= x.address %></p>
+    </div>
+    <% end %>
+  </div>
+  <p><%= link_to "Add new restaurant", new_restaurant_path %></p>
+</div>
